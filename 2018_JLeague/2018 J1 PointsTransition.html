@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<title>J1順位推移</title>
+
+
+<!--Bootstrap４に必要なCSSとJavaScriptを読み込み-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<!--Chart.jsの読み込み-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.min.js"></script>
+<script>
+    window.onload = function() {
+       ctx = document.getElementById("canvas").getContext("2d");
+        window.myBar = new Chart(ctx, {
+        type: 'bar',
+        data: barChartData,
+        options: complexChartOption
+        });
+    };
+</script>
+<script>
+    // 順位・勝ち点推移
+    var barChartData = {
+        labels: ['1節','2節','3節','4節','5節','6節','7節',
+                '8節','9節','10節','11節','12節','13節','14節',
+                '15節','16節','17節','18節','19節','20節','21節',
+                '22節','23節','24節','25節','26節','27節','28節',
+                '29節','30節','31節','32節',
+        ],
+        datasets: [
+            {
+                type: 'line',
+                label: '川崎フロンターレ',
+                data: ['3','4','7','10','10','11','11',
+                       '12','15','18','21','21','21','24',
+                       '27','30','33','34','34','37','40',
+                       '41','44','47','47','50','53','56',
+                       '57','60','63','63',
+                ],
+                borderColor : "rgba(78,176,252,1.0)",
+                fill: false,
+                lineTension: 0,
+                yAxisID: "y-axis-2",
+            },
+            {
+                type: 'line',
+                label: 'サンフレッチェ広島',
+                data: ['3','6','9','10','13','16','19',
+                       '22','25','25','28','31','34','37',
+                       '37','40','41','41','44','45','48',
+                       '49','49','52','55','55','56','56',
+                       '56','56','56','56',
+                ],
+                borderColor : "rgba(87,28,140,1.0)",
+                fill: false,
+                lineTension: 0,
+                yAxisID: "y-axis-2",
+            },
+            {
+                type: 'line',
+                label: '鹿島アントラーズ',
+                data: ['1','4','4','7','8','8','8',
+                       '11','11','12','12','15','18','18',
+                       '19','22','25','26','26','29','29',
+                       '32','35','36','36','39','42','45',
+                       '46','46','49','52',
+                ],
+                borderColor : "rgba(178,23,66,1.0)",
+                fill: false,
+                lineTension: 0,
+                yAxisID: "y-axis-2",
+            },
+            {
+                type: 'line',
+                label: '北海道コンサドーレ札幌',
+                data: ['0','1','1','4','5','8','11',
+                       '14','15','18','19','22','25','26',
+                       '26','26','27','30','33','33','34',
+                       '35','38','41','44','44','44','47',
+                       '47','48','51','51',
+                ],
+                borderColor : "rgba(208,17,11,1.0)",
+                fill: false,
+                lineTension: 0,
+                yAxisID: "y-axis-2",
+            },
+            {
+                type: 'line',
+                label: 'FC東京',
+                data: ['1','1','1','4','7','10','13',
+                       '13','16','19','22','23','26','27',
+                       '28','31','34','34','37','40','40',
+                       '40','40','41','42','42','43','43',
+                       '46','46','49','50',
+                ],
+                borderColor : "rgba(25,24,137,1.0)",
+                fill: false,
+                lineTension: 0,
+                yAxisID: "y-axis-2",
+            },
+            {
+                type: 'line',
+                label: '浦和レッズ',
+                data: ['1','1','2','2','2','5','8',
+                       '11','12','12','12','15','15','16',
+                       '17','20','21','24','27','28','28',
+                       '31','32','32','32','35','38','41',
+                       '42','45','45','48',
+                ],
+                borderColor : "rgba(211,17,27,1.0)",
+                fill: false,
+                lineTension: 0,
+                yAxisID: "y-axis-2",
+            },
+            {
+                type: 'line',
+                label: '清水エスパルス',
+                data: ['1','4','7','8','8','9','9',
+                       '9','9','12','15','15','15','18',
+                       '18','21','24','27','27','27','27',
+                       '28','28','31','31','34','34','37',
+                       '40','43','44','47',
+                ],
+                borderColor : "rgba(249,158,15,1.0)",
+                fill: false,
+                lineTension: 0,
+                yAxisID: "y-axis-2",
+            },
+            {
+                type: 'line',
+                label: 'セレッソ大阪',
+                data: ['1','2','3','3','6','9','12',
+                       '15','15','18','19','20','23','26',
+                       '26','27','27','28','29','29','30',
+                       '33','36','36','39','40','41','41',
+                       '41','44','44','47',
+                ],
+                borderColor : "rgba(214,12,93,1.0)",
+                fill: false,
+                lineTension: 0,
+                yAxisID: "y-axis-2",
+            },
+            {
+                type: 'line',
+                label: 'ガンバ大阪',
+                data: ['0','0','0','1','1','1','4',
+                       '4','7','7','10','13','13','14',
+                       '15','15','15','16','17','17','20',
+                       '21','21','21','24','27','30','33',
+                       '36','39','42','45',
+                ],
+                borderColor : "rgba(28,83,156,1.0)",
+                fill: false,
+                lineTension: 0,
+                yAxisID: "y-axis-2",
+            },
+            {
+                type: 'line',
+                label: 'ベガルタ仙台',
+                data: ['3','6','7','8','11','11','14',
+                       '15','15','15','16','16','19','19',
+                       '22','22','25','26','26','26','29',
+                       '32','35','35','38','41','41','41',
+                       '42','42','42','45',
+                ],
+                borderColor : "rgba(245,204,22,1.0)",
+                fill: false,
+                lineTension: 0,
+                yAxisID: "y-axis-2",
+            },
+            {
+                type: 'line',
+                label: 'ジュビロ磐田',
+                data: ['0','0','3','4','7','8','8','11',
+                       '14','14','15','18','21','21','21',
+                       '22','23','24','25','28','28','28',
+                       '31','32','32','33','33','36','36',
+                       '37','40','41',
+                ],
+                borderColor : "rgba(122,148,207,1.0)",
+                fill: false,
+                lineTension: 0,
+                yAxisID: "y-axis-2",
+            },
+            {
+                type: 'line',
+                label: 'ヴィッセル神戸',
+                data: ['1','1','2','5','5','8','8','11',
+                       '14','15','15','16','16','19','22',
+                       '25','25','28','29','29','32','33',
+                       '35','35','35','35','35','35','36',
+                       '36','40','41',
+                ],
+                borderColor : "rgba(150,8,21,1.0)",
+                fill: false,
+                lineTension: 0,
+                yAxisID: "y-axis-2",
+            },
+            {
+                type: 'line',
+                label: '横浜F・マリノス',
+                data: ['1','1','1','4','7','8','8','8',
+                       '9','9','12','12','13','14','17',
+                       '20','20','20','20','23','23','23',
+                       '26','26','29','29','32','35','38',
+                       '38','38','41',
+                ],
+                borderColor : "rgba(26,51,149,1.0)",
+                fill: false,
+                lineTension: 0,
+                yAxisID: "y-axis-2",
+            },
+            {
+                type: 'line',
+                label: '湘南ベルマーレ',
+                data: ['3','4','5','5','5','8','8','8',
+                       '9','12','15','15','15','15','18',
+                       '19','22','23','26','27','27','27',
+                       '27','28','31','31','32','32','35',
+                       '36','37','37',
+                ],
+                borderColor : "rgba(105,188,51,1.0)",
+                fill: false,
+                lineTension: 0,
+                yAxisID: "y-axis-2",
+            },
+            {
+                type: 'line',
+                label: '名古屋グランパス',
+                data: ['3','6','7','7','7','7','7',
+                       '7','7','7','7','8','9','9',
+                       '9','9','10','10','13','16','19',
+                       '22','25','28','31','31','31','34',
+                       '34','37','37','37',
+                ],
+                borderColor : "rgba(209,22,17,1.0)",
+                fill: false,
+                lineTension: 0,
+                yAxisID: "y-axis-2",
+            },
+            {
+                type: 'line',
+                label: 'サガン鳥栖',
+                data: ['1','2','5','5','8','8','8',
+                       '8','8','8','8','8','11','12',
+                       '13','14','14','15','15','18','21',
+                       '22','22','25','26','29','30','30',
+                       '30','33','36','37',
+                ],
+                borderColor : "rgba(75,167,214,1.0)",
+                fill: false,
+                lineTension: 0,
+                yAxisID: "y-axis-2",
+            },
+            {
+                type: 'line',
+                label: '柏レイソル',
+                data: ['0','3','4','5','8','8','11',
+                       '11','11','14','17','17','17','20',
+                       '20','20','20','20','20','23','23',
+                       '26','26','29','29','29','30','30',
+                       '33','33','33','33',
+                ],
+                borderColor : "rgba(248,239,28,1.0)",
+                fill: false,
+                lineTension: 0,
+                yAxisID: "y-axis-2",
+            },
+            {
+                type: 'line',
+                label: 'V・ファーレン長崎',
+                data: ['0','1','2','2','2','2','5',
+                       '8','11','14','14','14','14','17',
+                       '17','17','17','20','20','21','21',
+                       '21','21','21','21','24','27','27',
+                       '28','29','29','29',
+                ],
+                borderColor : "rgba(34,85,169,1.0)",
+                fill: false,
+                lineTension: 0,
+                yAxisID: "y-axis-2",
+            },
+        ],
+    };
+ </script>
+ <script>
+    var complexChartOption = {
+        responsive: true,
+        scales: {
+            yAxes: [
+            /*    {
+                    id: "y-axis-1",   // Y軸のID
+                    type: "linear",   // linear固定 
+                    position: "left", // どちら側に表示される軸か？
+                ticks: {          // スケール
+                    max: 17,
+                    min: 1,
+                    stepSize: 1,
+                    reverse: true,
+                },
+                scaleGridLineWidth : 2,
+            },*/
+            {
+                id: "y-axis-2",
+                type: "linear", 
+                position: "left",
+                scaleLabel:{
+                    display: false,
+                },
+                ticks: {
+                    max: 69,
+                    min: 0,
+                    stepSize: 1,
+                },
+            }
+        ],
+    }
+    };
+ </script>
+
+
+
+</head>
+<body>
+    <!--グラフの表示-->
+    <div id="tit" style="text-align: center">2018明治安田生命Ｊ１リーグ 勝点推移</div>
+    <div class="container" style="width:80%">
+        <canvas id="canvas" height="220"></canvas>
+    </div>
+</body>
+</html>
